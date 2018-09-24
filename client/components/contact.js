@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
 class Contact extends Component {
-  constructor (prop) {
-    super(prop)
+  constructor (props) {
+    super(props)
     this.state = {
       firstName: '',
       laseName: '',
@@ -12,12 +12,35 @@ class Contact extends Component {
       phone: '',
       content: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange (evt) {
+    this.setState({
+      [evt.target.name]:evt.target.value
+    })
   }
 
   render () {
-    return (<div>
-            <h1>This is a form</h1>
-            </div>)
+    return (<form>
+            <label htmlFor=''>First Name:</label>
+            <input name='firstname' type='text' onChange={this.handleChange} />
+            <label htmlFor=''>Last Name:</label>
+            <input name='' type='' onChange={this.handleChange} />
+            <label htmlFor=''>Phone Number:</label>
+            <input name='' type='' onChange={this.handleChange} />
+            <label htmlFor=''>Date of Event:</label>
+            <input name='' type='' onChange={this.handleChange} />
+            <label htmlFor=''>Time of Event:</label>
+            <input name='' type='' onChange={this.handleChange} />
+            <label htmlFor=''>NUmber of Guests:</label>
+            <input name='' type='' onChange={this.handleChange} />
+            <label htmlFor=''>Type of Event:</label>
+            <input name='' type='' onChange={this.handleChange} />
+            <label htmlFor=''>Venue/Location:</label>
+            <input name='' type='' onChange={this.handleChange} />
+            <button>Submit</button>
+            </form>)
   }
 }
 
